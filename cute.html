@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cute Invite</title>
+
+  <style>
+    /* Whole Page */
+    body {
+      background-color: #ffe6f0; /* soft pink */
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Divs */
+    #outside, #inside, #maybe-page, #no-meet-page {
+      margin-top: 20px;
+    }
+
+    /* Titles */
+    #inside-title, #outside-title, #maybe-title, #no-meet-title {
+      font-size: 50px; /* huge */
+      font-weight: bold;
+      color: #ff66b2;
+      margin-bottom: 20px;
+    }
+
+    /* Images */
+    #inside-pic, #outside-pic, #maybe-pic {
+      width: 200px;
+      height: auto;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    /* Buttons */
+    button {
+      padding: 12px 25px;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ff99cc, #ff66b2);
+      color: white;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: 0.3s all ease;
+    }
+
+    /* Button Hover Effect */
+    button:hover {
+      background: linear-gradient(to right, #ff66b2, #ff3385);
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Outside Card -->
+  <div id="outside">
+    <p id="outside-title">
+      Are you single?
+    </p>
+    <img id="outside-pic" src="cat.jpg">
+    <p>
+      <button onclick="open_card()">No</button>
+      <button onclick="maybe_card()">Um maybe</button>
+    </p>
+  </div>
+
+  <!-- Inside Card (Wednesday Invite) -->
+  <div id="inside" style="display:none;">
+    <p id="inside-title">
+      Will you meet me on Wednesday? 10pm?
+    </p>
+    <img id="inside-pic" src="baby.jpg">
+    <p id="message">
+      I'd be honoured if I get to spend the day with the most beautiful boy I've ever seen!
+    </p>
+    <p>
+      <button onclick="say_yes()">Yes</button>
+      <button onclick="no_meet()">No</button>
+    </p>
+  </div>
+
+  <!-- Maybe Card ("Um maybe" clicked) -->
+  <div id="maybe-page" style="display:none;">
+    <p id="maybe-title">
+      Wow, aesa kya? No boyfriend privileges for you.
+    </p>
+    <img id="maybe-pic" src="angry.jpg">
+    <p>
+      <button onclick="start_again()">Start Again</button>
+    </p>
+  </div>
+
+  <!-- No Meet Page ("No" to Wednesday clicked) -->
+  <div id="no-meet-page" style="display:none;">
+    <p id="no-meet-title">
+      Milo hi mat tum. Jao.
+    </p>
+
+  </p>
+    <img id="no-meet-pic" src="sad.jpg">
+    <p>
+      <button onclick="start_again()">Start Again</button>
+    </p>
+  </div>
+
+  <!-- JavaScript to Switch Pages -->
+  <script>
+    function open_card() {
+      hideAll();
+      document.getElementById('inside').style.display = 'block';
+    }
+
+    function maybe_card() {
+      hideAll();
+      document.getElementById('maybe-page').style.display = 'block';
+    }
+
+    function start_again() {
+      hideAll();
+      document.getElementById('outside').style.display = 'block';
+    }
+
+    function say_yes() {
+      alert("Yay! Can't wait to see you! ❤️");
+    }
+
+    function no_meet() {
+      hideAll();
+      document.getElementById('no-meet-page').style.display = 'block';
+    }
+
+    function hideAll() {
+      document.getElementById('outside').style.display = 'none';
+      document.getElementById('inside').style.display = 'none';
+      document.getElementById('maybe-page').style.display = 'none';
+      document.getElementById('no-meet-page').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
